@@ -2,14 +2,37 @@
 <html>
 <head>
 <meta>
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="prototype.js"></script>
+<!-- <script src="custom_js.js"></script> -->
 </head>
 
 
 <body>
 
-Hello World!
+  <div class="container">
+
+    <form>
+      <fieldset>
+        <legend>Legend</legend>
+        <select id="notesUp">
+        </select>
+        <!-- where text willoutput -->
+        <textarea id="txt-subject">Subject</textarea><br>
+        <textarea id="txt-content">Content</textarea><br>
+        <button id="submit_btn" type="submit" class="btn">Submit</button>
+
+
+      </fieldset>
+    </form>
+
+    <div id="funzone">
+
+    </div>
+
+  </div>
 
 </body>
 </html>
