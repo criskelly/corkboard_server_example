@@ -10,7 +10,6 @@ $(document).ready(function() {
     this.content = '';
   };
 
-// .fetch finds note and puts it in the text field when called
   Note.prototype.fetch = function() {
     var this_ = this;
     return $.ajax({
@@ -60,21 +59,13 @@ $(document).ready(function() {
         subject : newSubject,
         content : newContent
       }),
-      success: function(data) {
+      success: function() {
         console.log(data);
       },
       error: function(){}
     });
   };
 
-  Note.prototype.del = function(){
-    $.ajax({
-      url: this.baseUrl + this.id;,
-      dataType: 'json',
-      type: "DELETE",
-
-    })
-  };
 
   $('#submit_btn').click(function(e) {
     e.preventDefault();
@@ -87,8 +78,6 @@ $(document).ready(function() {
     // display Note data on page
     console.log(note);
   });
-
-    // the following code uses .fetch to get the note ID in the html selector tag
     // choose and change the id
   $('#notesUp').change(function() {
       // get current value of notesUp
@@ -102,43 +91,28 @@ $(document).ready(function() {
         // put the content in the subject box
         var this_content = this.content;
         // console.log(this_note);
-        console.log(this_subject);
         console.log(this_content);
+        console.log(this_subject);
       }); // end done
-  }); // end notesUP change
-
-
-      // create note with click of button
-  $("#create_btn").click(function(){
-    createNote = new Note();
-    createNote.subject = $("#txt-subject").val();
-    createNote.content = $("#txt-content").val();
-    createNote.create(createNote.subject, createNote.content);
-  });
-
-  // destroy notes
-
-
-
+    }); // end notesUP change
 }); // end ready
 
+function fetchAll() {
+  $.ajax({
+      url: '/note',
+      dataType: "json",
+      type: "GET",
+      context: this,
+      success: function (data) {
+        // create an array of IDs???
+        console.log(data);
+      },
+      error: function () {
 
-// function fetchAll() {
-//   $.ajax({
-//       url: '/note',
-//       dataType: "json",
-//       type: "GET",
-//       context: this,
-//       success: function (data) {
-//         // create an array of IDs???
-//         console.log(data);
-//       },
-//       error: function () {
+      }
+    });
+  }
 
-//       }
-//     });
-//   }
-// the code below only presents the note id in the dropdown
 function displayNotes() {
   $.ajax({
     url: '/note',
@@ -156,5 +130,4 @@ function displayNotes() {
 }
 
 displayNotes();
-
-
+fetchById(5);

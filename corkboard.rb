@@ -91,7 +91,7 @@ get '/note' do
 end
 
 # allows data INTO the database via 'PUT' statements    ##########
-put '/note' do
+put '/note/' do
   # Request.body.read is destructive, make sure you don't use a puts here.
   data = JSON.parse(request.body.read)
 

@@ -6,7 +6,6 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="prototype.js"></script>
-<!-- <script src="custom_js.js"></script> -->
 </head>
 
 
@@ -16,13 +15,19 @@
 
     <form>
       <fieldset>
-        <legend>Legend</legend>
+        <legend>Find, Update, or Delete your Notes.</legend>
         <select id="notesUp">
-        </select>
-        <!-- where text willoutput -->
+        </select><br>
+<!--         <!-- where text willoutput -->
+        <h4>Note Subject</h4>
         <textarea id="txt-subject">Subject</textarea><br>
+        <h4>Note Contents</h4>
         <textarea id="txt-content">Content</textarea><br>
-        <button id="submit_btn" type="submit" class="btn">Submit</button>
+        <button id="update_btn" type="submit" class="btn">Update</button>
+        <button id="create_btn" type="submit" class="btn">Create</button>
+        <button id="delete_btn" type="submit" class="btn">Delete</button>
+
+
 
 
       </fieldset>
